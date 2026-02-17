@@ -264,6 +264,7 @@ export interface FetchedIssueData {
   hasUserInputNeeded: boolean;
   hasNeedsApproval: boolean;
   hasHumanApproved: boolean;
+  source: IssueSource | null; // Canonical identity for GitHub issues, null for Linear
 }
 
 /**
@@ -280,6 +281,7 @@ export interface IssueStateDict {
   suggestedAction: ActionType;
   sessionId: string;
   hasUserFeedback: boolean;
+  source: IssueSource | null;
 }
 
 /**
@@ -303,6 +305,7 @@ export interface IssueState {
   suggestedAction: ActionType;
   sessionId: string;
   hasUserFeedback: boolean;
+  source: IssueSource | null; // Canonical identity for GitHub issues, null for Linear
 }
 
 export const IssueState = {
@@ -321,6 +324,7 @@ export const IssueState = {
       suggestedAction: state.suggestedAction,
       sessionId: state.sessionId,
       hasUserFeedback: state.hasUserFeedback,
+      source: state.source,
     };
     return dict;
   },
